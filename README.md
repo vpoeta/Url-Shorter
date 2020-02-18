@@ -25,13 +25,12 @@ Follow these steps to get your development environment set up:
      ```
      dotnet build
      ```
-  4. Launch [https://localhost:5001/api/v1](http://localhost:5001/api/v1) in your browser to view the API
+  4. Call Get method on [https://localhost:5001/api/v1/Home](http://localhost:5001/api/v1/Home) in your browser to view the API
 
 ## Technologies
 * .NET Core 3
 * ASP.NET Core 3
-* Entity Framework Core 3
-* Angular 8
+* MongoDB
 
 ## Versions
 The [master](https://github.com/vpoeta/Url-Shorter-Service/tree/master) branch is running .NET Core 3. 
