@@ -20,6 +20,11 @@ namespace UrlShorter.Services.Application.UrlMapping.Queries.GetLinkMapped
 
         public async Task<string> Handle(GetLinkMappedQuery request, CancellationToken cancellationToken)
         {
+            if (string.IsNullOrEmpty(request?.Code))
+            { 
+                throw new BadRequestException("Code cannot be null or empty string.");
+            }
+
             var longLink = await _urlMappingRepository.GetLongLinkAsync(request.Code);
 
             if (string.IsNullOrEmpty(longLink))

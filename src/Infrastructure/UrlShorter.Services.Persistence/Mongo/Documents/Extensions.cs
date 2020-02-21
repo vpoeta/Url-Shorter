@@ -6,7 +6,7 @@ namespace UrlShorter.Services.Persistence.Mongo.Documents
     {
 
         public static UrlMapping AsEntity(this UrlMappingDocument document)
-            => new UrlMapping(document.Code, document.ShortLink, document.LongLink, document.ExpireAt.AsDateTime);
+            => new UrlMapping(document.Code, document.ShortLink, document.LongLink, document.ExpireAt.ToUniversalTime());
 
         public static UrlMappingDocument AsDocument(this UrlMapping entity)
             => new UrlMappingDocument

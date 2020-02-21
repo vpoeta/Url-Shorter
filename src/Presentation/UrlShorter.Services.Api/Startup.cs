@@ -1,19 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using UrlShorter.Services.Application;
 using UrlShorter.Services.Persistence;
 using UrlShorter.Services.Infrastructure;
 using UrlShorter.Services.Common;
+using UrlShorter.Services.Api.Common;
 
 namespace UrlShorter.Services.Api
 {
@@ -55,6 +49,10 @@ namespace UrlShorter.Services.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCustomExceptionHandler();
+
+            app.UseCustomResponseHandler();
+
             app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
